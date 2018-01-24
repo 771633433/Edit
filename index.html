@@ -6,19 +6,16 @@
 	<link rel="stylesheet" href="css/kendo.common.min.css" />
     <link rel="stylesheet" href="css/kendo.default.min.css" />
     <link rel="stylesheet" href="css/kendo.default.mobile.min.css" />
-	<link rel="stylesheet" href="https://unpkg.com/iview@2.8.0/dist/styles/iview.css">
+	<link rel="stylesheet" href="css/iview.css" />
 
 	<script src="js/jquery.min.js"></script>
 	<script src="js/kendo.all.min.js"></script>
-	<script src="js/kendo.all.min.js"></script>
+    
     <script src="js/vue.js"></script>
     <!--	引入jszip.js才能支持导出	-->
     <script type="text/javascript" src="js/jszip.min.js" ></script>
-
-
-<!-- import iView -->
-<script src="https://unpkg.com/iview@2.8.0/dist/iview.min.js"></script>
-<script src="js/products.js"></script>
+	<!--    import iView -->
+	<!-- <script src="js/iview.min.js"></script> -->
 </head>
 <body>
 	<div id="example">
@@ -32,36 +29,113 @@
 					</div>
 				</div>
 				<!--	下面是li列表,让用户输入	-->
-					<div style="float: left;margin-top:40px; ">
+					<div style="float: left;margin-top:10px; ">
 						<ul>
-							<li class="li0">身份证号:
-								<input type="text" v-model='idNumber' placeholder="输入身份证号" style="width: 150px;outline: none;">
+							<!--  姓名	-->
+							<li class="li0">
+								<p class="userinfo" title="姓名">姓名:</p>
+								<input type="text" v-model='personName' placeholder="输入姓名" style="width: 150px;outline: none;">
 							</li>
 							<!--  	性别 select选择框	-->
 							<li class="li1">
-								性别:
-								<select v-model='gender' style="margin-left: 23px;">
+								<p class="userinfo" title="性别">性别:</p>
+								<select v-model='sex' style="width: 150px;">
 									<option value="" selected="true" disabled="true">请选择</option>
 									<option>男</option>
 								 	<option>女</option>
 								</select>
 							</li>
-							<!--	ip地址	-->
-							<li class="li2">
-								ip地址:
-								<input type="text" v-model='ipAddress' placeholder="输入ip地址" style="margin-left: 10px;">
+							<!--  身份证号	-->
+							<li class="li1">
+								<p class="userinfo" title="身份证号">身份证号:</p>
+								<input type="text" v-model='idNumber' placeholder="输入身份证号" style="width: 150px;outline: none;">
 							</li>
-
-							<!--	所属派出所	-->
-							<li class="li3">
-								所属地:
-								<select v-model='belong' style="margin-left: 10px;">
+							<!--  	政治面貌 select选择框	-->
+							<li class="li1">
+								<p class="userinfo" title="政治面貌">政治面貌:</p>
+								<select v-model='politic' style="width: 150px;">
 									<option value="" selected="true" disabled="true">请选择</option>
-									<option>西约派出所</option>
-								 	<option>东城派出所</option>
-								 	<option>南海区公安局</option>
+									<option>团员</option>
+								 	<option>党员</option>
 								</select>
 							</li>
+							
+							<!--  职业	-->
+							<li class="li1">
+								<p class="userinfo" title="职业">职业:</p>
+								<input type="text" v-model='job' placeholder="输入职业信息">
+							</li>
+							<!--	籍贯	-->
+							<li class="li1">
+								<p class="userinfo" title="籍贯">籍贯:</p>
+								<input type="text" v-model='nativePlace' placeholder="输入籍贯">
+							</li>
+
+							<!--	居住状态	-->
+							<li class="li1">
+								<p class="userinfo" title="居住状态">居住状态:</p>
+								<select v-model='livingStatus' style="width: 150px;">
+									<option value="" selected="true" disabled="true">请选择</option>
+									<option>长住</option>
+								 	<option>暂住</option>
+								</select>
+							</li>
+
+							<!--	联系方式	-->
+							<li class="li1">
+								<p class="userinfo" title="联系方式">联系方式:</p>
+								<input type="text" v-model='phoneNumber' placeholder="输入联系方式">
+							</li>
+
+							<!--	人员标签	-->
+							<li class="li1">
+								<p class="userinfo" title="人员标签">人员标签:</p>
+								<select v-model='personTags' style="width: 150px;">
+									<option value="" selected="true" disabled="true">请选择</option>
+									<option>打架斗殴</option>
+								 	<option>涉黄</option>
+								 	<option>吸毒</option>
+								 	<option>前科</option>
+								 	<option>其它</option>
+								</select>
+							</li>
+
+							<!--	小区名称	-->
+							<li class="li1">
+								<p class="userinfo" title="小区名称">小区名称:</p>
+								<input type="text" v-model='communityName' placeholder="输入小区名称">
+							</li>
+
+							<!--	楼栋号	-->
+							<li class="li1">
+								<p class="userinfo" title="楼栋号">楼栋号:</p>
+								<input type="text" v-model='buildingNum' placeholder="输入楼栋号">
+							</li>
+
+							<!--	单元号	-->
+							<li class="li1">
+								<p class="userinfo" title="楼栋号">单元号:</p>
+								<input type="text" v-model='unitNum' placeholder="输入单元号">
+							</li>
+
+							<!--	楼层号	-->
+							<li class="li1">
+								<p class="userinfo" title="楼栋号">楼层号:</p>
+								<input type="text" v-model='floorNum' placeholder="输入楼层号">
+							</li>
+
+							<!--	房间号	-->
+							<li class="li1">
+								<p class="userinfo" title="房间号">房间号:</p>
+								<input type="text" v-model='roomNum' placeholder="输入房间号">
+							</li>
+
+							<!--  证件照	-->
+							<li class="li2">
+								<p class="p2">证件照:</p>
+								<div class="zjz"></div>
+							</li>
+
 						</ul>
 					</div>
 
@@ -78,7 +152,7 @@
 			<div class="bar">
 				<div class="menau">
 					<!--	添加按钮,可以添加	-->
-					<div class="add" @click='addMes' title="添加">
+					<div class="add" @click='addMes' title="新增">
 						<i class="ivu-icon ivu-icon-plus-circled" style="font-size: 18px;color:#284e8d;line-height: 30px;"></i>
 					</div>
 					<!--  导入按钮	-->
@@ -91,6 +165,122 @@
 					</div>
 				</div>
 			</div>
+
+			<!--	左边查询那个框	-->
+			<div class="search">
+				<div class="checkRes">
+					<!--  查询 -->
+					<div class="checkleft" @click='check'>查询</div>
+					<!--  取消	-->
+					<div class="cancelleft" @click='cancel'>取消</div>
+				</div>
+
+				<!--	左侧让用户输入的form表单	-->
+				<div class="userInput">
+					<ul>
+							<!--  姓名	-->
+							<li class="li0" style="margin-top: 10px;">
+								<p class="userinfo" title="姓名">姓名:</p>
+								<input type="text" v-model='Sid' placeholder="输入姓名" style="width: 150px;outline: none;">
+							</li>
+							<!--  	性别 select选择框	-->
+							<li class="li1">
+								<p class="userinfo" title="性别">性别:</p>
+								<select v-model='Ssex' style="width: 150px;">
+									<option value="" selected="true" disabled="true">请选择</option>
+									<option>男</option>
+								 	<option>女</option>
+								</select>
+							</li>
+							<!--  身份证号	-->
+							<li class="li1">
+								<p class="userinfo" title="身份证号">身份证号:</p>
+								<input type="text" v-model='SidNumber' placeholder="输入身份证号" style="width: 150px;outline: none;">
+							</li>
+							<!--  	政治面貌 select选择框	-->
+							<li class="li1">
+								<p class="userinfo" title="性别">政治面貌:</p>
+								<select v-model='Spolitic' style="width: 150px;">
+									<option value="" selected="true" disabled="true">请选择</option>
+									<option>团员</option>
+								 	<option>党员</option>
+								</select>
+							</li>
+							
+							<!--  职业	-->
+							<li class="li1">
+								<p class="userinfo" title="性别">职业:</p>
+								<input type="text" v-model='Sjob' placeholder="输入职业信息" style="width: 150px;">
+							</li>
+							<!--	籍贯	-->
+							<li class="li1">
+								<p class="userinfo" title="性别">籍贯:</p>
+								<input type="text" v-model='SnativePlace' placeholder="输入籍贯" style="width: 150px;">
+							</li>
+
+							<!--	居住状态	-->
+							<li class="li1">
+								<p class="userinfo" title="性别">居住状态:</p>
+								<select v-model='SlivingStatus' style="width: 150px;">
+									<option value="" selected="true" disabled="true">请选择</option>
+									<option>长住</option>
+								 	<option>暂住</option>
+								</select>
+							</li>
+
+							<!--	联系方式	-->
+							<li class="li1">
+								<p class="userinfo" title="性别">联系方式:</p>
+								<input type="text" v-model='phoneNumber' placeholder="输入联系方式" style="width: 150px;">
+							</li>
+
+							<!--	人员标签	-->
+							<li class="li1">
+								<p class="userinfo" title="性别">人员标签:</p>
+								<select v-model='personTags' style="width: 150px;">
+									<option value="" selected="true" disabled="true">请选择</option>
+									<option>打架斗殴</option>
+								 	<option>涉黄</option>
+								 	<option>吸毒</option>
+								 	<option>前科</option>
+								 	<option>其它</option>
+								</select>
+							</li>
+
+							<!--	小区名称	-->
+							<li class="li1">
+								<p class="userinfo" title="性别">小区名称:</p>
+								<input type="text" v-model='communityName' placeholder="输入小区名称" style="width: 150px;">
+							</li>
+
+							<!--	楼栋号	-->
+							<li class="li1">
+								<p class="userinfo" title="性别">楼栋号:</p>
+								<input type="text" v-model='buildingNum' placeholder="输入楼栋号" style="width: 150px;">
+							</li>
+
+							<!--	单元号	-->
+							<li class="li1">
+								<p class="userinfo" title="性别">单元号:</p>
+								<input type="text" v-model='unitNum' placeholder="输入单元号" style="width: 150px;">
+							</li>
+
+							<!--	楼层号	-->
+							<li class="li1">
+								<p class="userinfo" title="性别">楼层号:</p>
+								<input type="text" v-model='floorNum' placeholder="输入楼层号" style="width: 150px;">
+							</li>
+
+							<!--	房间号	-->
+							<li class="li1">
+								<p class="userinfo" title="性别">房间号:</p>
+								<input type="text" v-model='roomNum' placeholder="输入房间号" style="width: 150px;">
+							</li>
+						</ul>
+				</div>
+			</div>
+
+			<!-- grid  -->
             <div id="grid" data-bind="source:products"></div>
 	</div>
 
@@ -99,116 +289,63 @@
 var app=new Vue({
 	el:'#example',
 	data:{
-		data:products,
+		list:[],
+		personName:'',
+		sex:'',
 		idNumber:'',
-		gender:'',
-		ipAddress:'',
-		belong:''
+		cstate:'',
+		politic:'',
+		job:'',
+		nativePlace:'',
+		livingStatus:'',
+		phoneNumber:'',
+		personTags:'',
+		communityName:'',
+		buildingNum:'',
+		unitNum:'',
+		floorNum:'',
+		roomNum:'',
+		Sid:'',
+		Ssex:'',
+		SidNumber:'',
+		Spolitic:'',
+		SnativePlace:'',
+		Sjob:'',
+		SlivingStatus:''
 	},
 	created(){
-		//console.log(this.data);
+// 初始化的时候请求一次数据
+	var that=this;
 
-
-var crudServiceBaseUrl = "https://demos.telerik.com/kendo-ui/service",
-                        dataSource = new kendo.data.DataSource({
-                            transport: {
-                                read:  {
-                                    url: crudServiceBaseUrl + "/Products",
-                                    dataType: "jsonp"
-                                },
-                                update: {
-                                    url: crudServiceBaseUrl + "/Products/Update",
-                                    dataType: "jsonp"
-                                },
-                                destroy: {
-                                    url: crudServiceBaseUrl + "/Products/Destroy",
-                                    dataType: "jsonp"
-                                },
-                                create: {
-                                    url: crudServiceBaseUrl + "/Products/Create",
-                                    dataType: "jsonp"
-                                },
-                                parameterMap: function(options, operation) {
-                                    if (operation !== "read" && options.models) {
-                                        return {models: kendo.stringify(options.models)};
-                                    }
-                                }
-                            },
-                            batch: true,
-                            pageSize: 20,
-                            schema: {
-                                model: {
-                                    id: "ProductID",
-                                    fields: {
-                                        ProductID: { editable: false, nullable: true },
-                                        ProductName: { validation: { required: true } },
-                                        UnitPrice: { type: "number", validation: { required: true, min: 1} },
-                                        Discontinued: { type: "boolean" },
-                                        UnitsInStock: { type: "number", validation: { min: 0, required: true } }
-                                    }
-                                }
-                            }
-                        });
-		// created钩子,新增、删除、编辑、读取原始数据到此结束
-	},
-	methods:{
-		hide(){
-			//this.togg=!this.togg;
-			//alert('ghjkjh');
-			$(".myForm").animate({right:'-250px'},400);
-		},
-
-		// 重置表单
-		ResetVal(){
-			this.idNumber='';
-			this.gender='';
-			this.ipAddress='';
-			this.belong='';
-		},
-
-
-		// 提交表单
-		SubmitVal(){
-			console.log(this.idNumber,this.gender);
-			// remove掉
- 			 
-		this.data.unshift({
-				    ProductID : 1,
-				    PersonId : this.idNumber,
-				    SupplierID : 1,
-				    CategoryID : 1,
-				    QuantityPerUnit : "10 boxes x 20 bags",
-				    Sex : this.gender,
-				    ip : this.ipAddress,
-				    UnitsOnOrder : 0,
-				    ReorderLevel : 10,
-				    location : this.belong,
-				    Category : {
-				        CategoryID : 1,
-				        CategoryName : "Beverages",
-				        Description : "Soft drinks, coffees, teas, beers, and ales"
-				    }
-		});
-			 $("#grid").remove();
- 			 // $("#example").append($('<div id="grid" data-bind="source:products"></div>'))
- 			 $('.bar').after($('<div id="grid" data-bind="source:products"></div>'))
-
-		$("#grid").kendoGrid({
+	// 申明一个空的数组,用来后面替换this.list
+	var products;
+// 初始化kendo表格 
+	 $.ajax({
+        type: "GET",
+        contentType: "application/json;charset=utf-8",
+        url: 'http://172.20.22.43:8183/static-resource/userinfo' ,
+        dataType: "json",
+        success:(res)=> {   
+            this.list=res.content.list;
+            // 初始化kendo表格 
+            products=res.content.list;
+            //console.log(res.content.list);
+			$("#grid").kendoGrid({
                 dataSource: {
-                    data: this.data,
+                    data: products,
                         schema: {
                             model: {
                                 fields: {
-                                    ProductName: { type: "string" },
-                                    UnitPrice: { type: "string" },
-                                    UnitsInStock: { type: "string" },
-                                    Discontinued: { type: "string" }
+                                    id: { type: "string" },
+                                    name: { type: "string" },
+                                    userName: { type: "string" },
+                                    cstate: { type: "string" }
                                 }
                             }
                         },
                         pageSize: 20
                 },
-                height: 550,
+                height: 598,
                 scrollable: true,
                 sortable: false,
                 filterable: false,
@@ -220,82 +357,214 @@ var crudServiceBaseUrl = "https://demos.telerik.com/kendo-ui/service",
                     numeric: true
                  },
                 columns: [
-                    { field: "PersonId", title: "身份证号", width: "130px"},
-                    { field: "Sex", title: "性别", width: "130px" },
-                    { field: "ip", title: "ip地址", width: "130px" },
-                    { field: "location",title: "所属地", width: "130px" },
-                    { command: ["destroy"], title: "&nbsp;", width: "150px" }
-                ],
+                    { field: "id", title: "id", width: "0px"},
+                    { field: "name", title: "姓名", width: "130px" },
+                    { field: "userName", title: "身份证号", width: "130px" },
+                    { field: "cstate",title: "状态", width: "130px" },
+                    { 
+                    	command: [
+        					{
+         						name: "删除",
+         						click: function(e) {
+         							//console.log(that.list);
+            						var tr=$(e.target).closest("tr");
+            						var data=this.dataItem(tr)
+            						//console.log(data.id);           						
+
+            						// ajax调用接口,从数据库里面删除
+            						$.ajax({
+								        type: "DELETE",
+								        contentType: "application/json;charset=utf-8",
+								        url: 'http://172.20.22.43:8183/static-resource/userinfo?id='+data.id ,
+								        dataType: "json",
+								        success: (res)=>{
+								        	//console.log(res);
+								        	$.ajax({
+								        		type:"GET",
+								        		contentType: "application/json;charset=utf-8",
+								        		url: 'http://172.20.22.43:55534/userinfo',
+								        		dataType: "json",
+								        		success:function(res){
+								        			//console.log(res.content.list);
+
+								        			// ajax 调用成功后数据源操作,页面实时更新
+								        			this.list=res.content.list;
+								        			var listSource=new kendo.data.DataSource({
+                         			 					data:this.list
+                        							})
+
+                       								var viewModel=kendo.observable({
+                          								products:listSource
+                        							})
+
+                        							kendo.bind($('#grid'),viewModel);
+
+								        		}
+								        	});
+								        	// success方法到这里结束
+								        },
+								        error:(XMLHttpRequest, textStatus, errorThrown)=>{
+								        	alert("服务调用失败，请检查输入字段或联系管理员");
+								        }
+								    });
+								    // ajax到此结束
+         						}
+        					}
+      					]
+    				},
+                ], 
                 editable: "inline"
-        });
+        	});      
+        },
+        error: function (XMLHttpRequest, textStatus, errorThrown) {
+            alert("服务调用失败，请检查输入字段或联系管理员");
+        }
+      })
+	},
+	methods:{
+		// 查询
+		check(){
+			//console.log("您点击了左侧的查询按钮");
+			$.ajax({
+		        type: "GET",
+		        contentType: "application/json;charset=utf-8",
+       			url: 'http://172.20.22.43:8183/static-resource/userinfo?'+'id='+this.Sid,
+        		dataType: "json",
+        		success:(res)=>{
+
+        			// 数据源操作
+        			// ajax 调用成功后数据源操作,页面实时更新
+						this.list=res.content.list;
+						var listSource=new kendo.data.DataSource({
+                         	data:this.list
+                        })
+
+                       	var viewModel=kendo.observable({
+                          	products:listSource
+                        })
+                        kendo.bind($('#grid'),viewModel);     
+        		},
+        		error:(XMLHttpRequest, textStatus, errorThrown)=>{
+        			 alert("服务调用失败，请检查输入字段或联系管理员");
+        		}
+        	});
+
+        	// check结束后清空表格 
+		},
+		// 取消
+		cancel(){
+			// console.log('您点击了左侧取消按钮 ');
+			//  用用户点击了取消按钮后,右侧grid显示数据库中所有的数据
+			$.ajax({
+		        type: "GET",
+		        contentType: "application/json;charset=utf-8",
+       			url: 'http://172.20.22.43:8183/static-resource/userinfo',
+        		dataType: "json",
+        		success:(res)=>{
+        			// 数据源操作
+        			// ajax 调用成功后数据源操作,页面实时更新
+						this.list=res.content.list;
+						var listSource=new kendo.data.DataSource({
+                         	data:this.list
+                        })
+
+                       	var viewModel=kendo.observable({
+                          	products:listSource
+                        })
+                        kendo.bind($('#grid'),viewModel); 
+        				
+        		},
+        		error:(XMLHttpRequest, textStatus, errorThrown)=>{
+        			 alert("服务调用失败，请检查输入字段或联系管理员");
+        		}
+        	});
+
+        	// 用户点击取消之后,清空表单
+        	this.Sid='';
+		},
 
 
-			// 绑定数据源
-//         	var listSource=new kendo.data.DataSource({
-//                 data:this.data
-//              })
+		hide(){
+			$(".myForm").animate({right:'-250px'},400);
+		},
+		// 重置表单
+		ResetVal(){
+			this.personName='';
+			this.sex='';
+			this.userName='';
+			this.cstate='';
+		},
 
 
-// 			var viewModel=kendo.observable({
-// 			  	products:listSource
-// 			});
+		// 提交表单
+		SubmitVal(){
+			 // $("#grid").remove();
+ 			//  $('.search').after($('<div id="grid" data-bind="source:products"></div>'))
+			// 调用post请求,携带参数添加到数据库
+$.ajax({
+        type: "POST",
+        contentType: "application/json;charset=utf-8",
+        url: 'http://172.20.22.43:8183/static-resource/userinfo' ,
+        data: JSON.stringify(
+        	{
+        		name:this.personName,
+        		userName:this.idNumber
+        	}
+        ),
+        dataType: "json",
+        success:(res)=> {
+            $.ajax({
+		        type: "GET",
+		        contentType: "application/json;charset=utf-8",
+		        url: 'http://172.20.22.43:8183/static-resource/userinfo' ,
+		        dataType: "json",
+        		// async:false,
+        		success:(res)=> {   
+            		this.list=res.content.list;
+            		// 数据源操作
+        			// ajax 调用成功后数据源操作,页面实时更新
+						this.list=res.content.list;
+						var listSource=new kendo.data.DataSource({
+                         	data:this.list
+                        })
 
-// // 
-// 			//console.log(viewModel);
-// 			//console.log(products);
-// 			kendo.bind($("#grid"),viewModel);
+                       	var viewModel=kendo.observable({
+                          	products:listSource
+                        })
+                        kendo.bind($('#grid'),viewModel); 	
+        		},
+        		error: function (XMLHttpRequest, textStatus, errorThrown) {
+            		alert("服务调用失败，请检查输入字段或联系管理员");
+        		}
+      		});
+        },
+        error:function(XMLHttpRequest, textStatus, errorThrown){
+        	alert("服务调用失败，请检查输入字段或联系管理员");
+        }
+});
+
+// 提交成功后清空表单
+
+			this.personName='';
+			this.sex='';
+			this.idNumber='';
+			this.politic='';
+
+
+			//console.log(this.list);
 
 			// 提交后表单全部清空
 
-			this.idNumber='';
-			this.gender='';
-			this.ipAddress='';
-			this.belong='';
+			this.id='';
+			this.name='';
+			this.userName='';
+			this.cstate='';
 
-			$(".myForm").animate({right:'-250px'},400);
+			$(".myForm").animate({right:'-250px'},400);	
 
-// remove 之后再重新显示
-
-// $("#grid").kendoGrid({
-//                 dataSource: {
-//                     data: this.data,
-//                         schema: {
-//                             model: {
-//                                 fields: {
-//                                     ProductName: { type: "string" },
-//                                     UnitPrice: { type: "string" },
-//                                     UnitsInStock: { type: "string" },
-//                                     Discontinued: { type: "string" }
-//                                 }
-//                             }
-//                         },
-//                         pageSize: 20
-//                 },
-//                 height: 550,
-//                 scrollable: true,
-//                 sortable: false,
-//                 filterable: false,
-//                 pageable: {
-//                     refresh:false,
-//                     buttonCount:5,
-//                     pageSize:20,
-//                     pageSizes: true,
-//                     numeric: true
-//                  },
-//                 columns: [
-//                     { field: "PersonId", title: "身份证号", width: "130px"},
-//                     { field: "Sex", title: "性别", width: "130px" },
-//                     { field: "ip", title: "ip地址", width: "130px" },
-//                     { field: "location",title: "所属地", width: "130px" },
-//                     { command: ["destroy"], title: "&nbsp;", width: "50px" }
-//                 ], 
-//                 editable: "inline"
-//         });
-
-			
 		},
 
-		// 添加数据
+		// 添加
 		addMes(){
 			// jQuery动画
 			//this.togg=true;
@@ -311,55 +580,31 @@ var crudServiceBaseUrl = "https://demos.telerik.com/kendo-ui/service",
 		},
 		// 导出excel表格下载到本地
 		exportRes(){
-			//alert('正在尝试导出。。。');
-          	var grid=$('#grid').data("kendoGrid");
-          	//console.log(grid._data);
-         	var excel={};
-          	$.extend(excel,grid);
-          	$.each(excel._data,function(i,item){});
-          	excel.saveAsExcel();
+			// 请求所有数据
+			$.ajax({
+		        type: "GET",
+		        contentType: "application/json;charset=utf-8",
+		        url: 'http://172.20.22.43:8183/static-resource/userinfo' ,
+	        	dataType: "json",
+        		success:(res)=> {
+            		// console.log(res.content);      
+            		this.list=res.content.list;
+
+            		// 导出成 excel表格
+            		var grid=$('#grid').data("kendoGrid");
+	         		var excel={};
+	          		$.extend(excel,grid);
+	          		$.each(excel._data,function(i,item){});
+	          		excel.saveAsExcel();
+           		},
+            	error:function(XMLHttpRequest, textStatus, errorThrown){
+        			alert("服务调用失败，请检查输入字段或联系管理员");
+        		}
+        	});	
 		}
 	},
 	mounted(){
-		//this.bug=true;
-		$("#grid").kendoGrid({
-                dataSource: {
-                    data: this.data,
-                        schema: {
-                            model: {
-                                fields: {
-                                    ProductName: { type: "string" },
-                                    UnitPrice: { type: "string" },
-                                    UnitsInStock: { type: "string" },
-                                    Discontinued: { type: "string" }
-                                }
-                            }
-                        },
-                        pageSize: 20
-                },
-                height: 550,
-                scrollable: true,
-                sortable: false,
-                filterable: false,
-                pageable: {
-                    refresh:false,
-                    buttonCount:5,
-                    pageSize:20,
-                    pageSizes: true,
-                    numeric: true
-                 },
-                columns: [
-                    { field: "PersonId", title: "身份证号", width: "130px"},
-                    { field: "Sex", title: "性别", width: "130px" },
-                    { field: "ip", title: "ip地址", width: "130px" },
-                    { field: "location",title: "所属地", width: "130px" },
-                    { command: ["edit","destroy"], title: "&nbsp;", width: "150px" }
-                ], 
-                editable: "inline"
-        });
-
-
-
+		//console.log(this.list);
 
 	}
 })
@@ -411,9 +656,9 @@ var crudServiceBaseUrl = "https://demos.telerik.com/kendo-ui/service",
 /*	 右侧的表单让用户填写	*/
 .myForm{
 	width: 240px;
-	height: 400px;
+	height: 600px;
 	right: -250px;
-	top: 52px;
+	top: 32px;
 	position: absolute;
 	z-index: 9999;
 	background: #f1f1f1;
@@ -440,31 +685,50 @@ var crudServiceBaseUrl = "https://demos.telerik.com/kendo-ui/service",
 	margin-left:4px;
 }
 
+/*   姓名,性别,身份证号那些汉字,给个p标签盖住。 */
+.userinfo{
+	width:60px;
+	height: 22px;
+	line-height: 22px;
+	float: left;
+	/*border: 1px solid #d7d7d7;*/
+	white-space:nowrap; 
+	text-overflow:ellipsis; 
+	overflow:hidden;
+}
+
 /*	 性别选择	*/
 .li1{
-	margin-top: 30px;
+	margin-top: 10px;
 	margin-left:4px;
 }
 
 /*	ip地址让用户填写	*/
 .li2{
-	margin-top: 30px;
+	margin-top: 36px;
 	margin-left:6px;
 }
 
-/* 所属公安局 */
-.li3{
-	margin-top: 30px;
-	margin-left:4px;
+.p2{
+	float: left;
 }
 
+/*	上传证件照	*/
+.zjz{
+	width: 64px;
+	height: 60px;
+	margin-top: -18px;
+	margin-left: 18px;
+	float: left;
+	border: 1px solid #d7d7d7;
+}
 
 /*	 一个box,用来提交与重置用户 	*/
 .submitForm{
 	width: 100%;
 	height: 30px;
 	float: left;
-	cursor: pointer;
+	/*cursor: pointer;*/
 	/*border: 1px solid gray;*/
 	/*margin-top: 100px;*/
 	position: absolute;
@@ -480,7 +744,7 @@ var crudServiceBaseUrl = "https://demos.telerik.com/kendo-ui/service",
 	text-align: center;
 	float: left;
 	cursor: pointer;
-	border: 1px solid gray;
+	border: 1px solid #d5d5d5;
 }
 
 
@@ -492,7 +756,8 @@ var crudServiceBaseUrl = "https://demos.telerik.com/kendo-ui/service",
 	line-height: 30px;
 	text-align: center;
 	float: right;
-	border: 1px solid gray;
+	cursor: pointer;
+	border: 1px solid #d5d5d5;
 }
 
 /*	 transition 过渡效果	*/
@@ -509,6 +774,67 @@ body{
 	width: 100%;
 	overflow: hidden;
 }
+
+
+/*   grid样式    */
+
+#grid{
+	width: 80%;
+	float: right;
+}
+
+
+/*	 左侧查询框	*/
+.search{
+	width: 240px;
+	height: 600px;
+	float: left;
+	margin-left: 10px;
+	background: #f1f1f1;
+	border: 1px solid #d5d5d5;
+}
+
+/*	 左侧查询样式	*/
+.checkRes{
+	width: 100%;
+	height: 50px;
+	float: left;
+	/*border-bottom: 1px solid #d5d5d5;*/
+}
+
+.checkleft{
+	width: 80px;
+	height: 30px;
+	margin-left: 20px;
+	margin-top: 12px;
+	line-height: 30px;
+	text-align: center;
+	float: left;
+	cursor: pointer;
+	border: 1px solid #d5d5d5;
+}
+
+.cancelleft{
+	width: 80px;
+	height: 30px;
+	margin-right: 20px;
+	margin-top: 12px;
+	line-height: 30px;
+	text-align: center;
+	float: right;
+	cursor: pointer;
+	border: 1px solid #d5d5d5;
+}
+
+/*	左侧表单让用户输入的东西	*/
+.userInput{
+	width: 100%;
+	float: left;
+	height: 500px;
+	margin-top: 16px;
+	/*border: 1px solid #d5d5d5;*/
+}
+
 </style>
 </div>
 </body>
