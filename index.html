@@ -323,11 +323,12 @@ var app=new Vue({
 	 $.ajax({
         type: "GET",
         contentType: "application/json;charset=utf-8",
-        url: 'http://172.20.22.43:8183/static-resource/userinfo' ,
+        url: 'http://172.20.22.43:8183/static-resource/userinfo?size=1000' ,
         dataType: "json",
         success:(res)=> {   
             this.list=res.content.list;
             // 初始化kendo表格 
+            console.log(this.list);
             products=res.content.list;
             //console.log(res.content.list);
 			$("#grid").kendoGrid({
@@ -349,13 +350,13 @@ var app=new Vue({
                 scrollable: true,
                 sortable: false,
                 filterable: false,
-                pageable: {
-                    refresh:false,
-                    buttonCount:5,
-                    pageSize:20,
-                    pageSizes: true,
-                    numeric: true
-                 },
+                // pageable: {
+                //     refresh:true,
+                //     buttonCount:5,
+                //     pageSize:20,
+                //     pageSizes: true,
+                //     numeric: true
+                //  },
                 columns: [
                     { field: "id", title: "id", width: "0px"},
                     { field: "name", title: "姓名", width: "130px" },
@@ -375,18 +376,18 @@ var app=new Vue({
             						$.ajax({
 								        type: "DELETE",
 								        contentType: "application/json;charset=utf-8",
-								        url: 'http://172.20.22.43:8183/static-resource/userinfo?id='+data.id ,
+								        url: 'http://172.20.22.43:8183/static-resource/userinfo?size=1000'+'&'+'id='+data.id ,
 								        dataType: "json",
 								        success: (res)=>{
 								        	//console.log(res);
 								        	$.ajax({
 								        		type:"GET",
 								        		contentType: "application/json;charset=utf-8",
-								        		url: 'http://172.20.22.43:55534/userinfo',
+								        		url: 'http://172.20.22.43:8183/static-resource/userinfo?size=1000',
 								        		dataType: "json",
 								        		success:function(res){
 								        			//console.log(res.content.list);
-
+								        			console.log(this.list);
 								        			// ajax 调用成功后数据源操作,页面实时更新
 								        			this.list=res.content.list;
 								        			var listSource=new kendo.data.DataSource({
@@ -428,10 +429,9 @@ var app=new Vue({
 			$.ajax({
 		        type: "GET",
 		        contentType: "application/json;charset=utf-8",
-       			url: 'http://172.20.22.43:8183/static-resource/userinfo?'+'id='+this.Sid,
+       			url: 'http://172.20.22.43:8183/static-resource/userinfo?size=1000'+'&'+'id='+this.Sid,
         		dataType: "json",
         		success:(res)=>{
-
         			// 数据源操作
         			// ajax 调用成功后数据源操作,页面实时更新
 						this.list=res.content.list;
@@ -516,7 +516,7 @@ $.ajax({
             $.ajax({
 		        type: "GET",
 		        contentType: "application/json;charset=utf-8",
-		        url: 'http://172.20.22.43:8183/static-resource/userinfo' ,
+		        url: 'http://172.20.22.43:8183/static-resource/userinfo?size=1000' ,
 		        dataType: "json",
         		// async:false,
         		success:(res)=> {   
@@ -601,7 +601,9 @@ $.ajax({
         			alert("服务调用失败，请检查输入字段或联系管理员");
         		}
         	});	
-		}
+		},
+
+		// 鼠标滚动到底部事件
 	},
 	mounted(){
 		//console.log(this.list);
@@ -834,6 +836,7 @@ body{
 	margin-top: 16px;
 	/*border: 1px solid #d5d5d5;*/
 }
+
 </style>
 </div>
 </body>
